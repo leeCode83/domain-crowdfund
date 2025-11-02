@@ -25,6 +25,12 @@ export function usePlants() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
 
+  // Fungsi untuk memberi jeda singkat agar RPC sinkron
+  const waitForRPC = (ms: number = 2000) => {
+    console.log(`Waiting ${ms}ms for RPC sync before fetching plants...`);
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   // Fetch user's plants (with optional silent mode for auto-refresh)
   const fetchPlants = useCallback(async (silent = false) => {
     if (!client || !address) {
@@ -96,6 +102,11 @@ export function usePlants() {
         description: 'Your plant has been created successfully. Cost: 0.001 ETH',
       })
 
+      // --- PERBAIKAN ---
+      // Beri jeda 2 detik agar RPC node sempat sinkron
+      await waitForRPC();
+      // --- AKHIR PERBAIKAN ---
+
       // Transaction is confirmed, refresh plants immediately
       await fetchPlants()
     } catch (err: any) {
@@ -145,6 +156,11 @@ export function usePlants() {
             ? 'Stage synced and plant watered successfully!'
             : 'Your plant has been watered successfully. FREE - gas only!',
         })
+
+        // --- PERBAIKAN ---
+        // Beri jeda 2 detik agar RPC node sempat sinkron
+        await waitForRPC();
+        // --- AKHIR PERBAIKAN ---
 
         // Transaction is confirmed, refresh plants immediately
         await fetchPlants()
@@ -198,6 +214,11 @@ export function usePlants() {
             : 'You received 0.003 ETH reward! 🎉',
         })
 
+        // --- PERBAIKAN ---
+        // Beri jeda 2 detik agar RPC node sempat sinkron
+        await waitForRPC();
+        // --- AKHIR PERBAIKAN ---
+
         // Transaction is confirmed, refresh plants immediately
         await fetchPlants()
       } catch (err: any) {
@@ -235,6 +256,11 @@ export function usePlants() {
           title: 'Stage updated!',
           description: 'Plant stage has been synchronized with blockchain.',
         })
+
+        // --- PERBAIKAN ---
+        // Beri jeda 2 detik agar RPC node sempat sinkron
+        await waitForRPC();
+        // --- AKHIR PERBAIKAN ---
 
         // Transaction is confirmed, refresh plants immediately
         await fetchPlants()
