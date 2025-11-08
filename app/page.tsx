@@ -171,15 +171,15 @@ const journeySteps: JourneyStep[] = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-emerald-50/50 to-white">
+    <div className="flex flex-col min-h-screen bg-linear-to-b from-white via-emerald-50/50 to-white">
       <main className="flex-1 flex flex-col">
         <section className="relative w-full overflow-hidden py-16 md:py-24">
           <div
-            className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.2),_transparent_55%)]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.2),transparent_55%)]"
             aria-hidden="true"
           />
           <div
-            className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-amber-50/80 via-white/70 to-transparent"
+            className="absolute inset-x-0 top-0 h-1/2 bg-linear-to-b from-amber-50/80 via-white/70 to-transparent"
             aria-hidden="true"
           />
           <div
@@ -229,7 +229,7 @@ export default function HomePage() {
                     <Button
                       size="lg"
                       asChild
-                      className="bg-gradient-to-r from-teal-500 via-emerald-400 to-lime-400 text-white shadow-lg shadow-emerald-400/40 hover:shadow-emerald-400/60"
+                      className="bg-linear-to-r from-teal-500 via-emerald-400 to-lime-400 text-white shadow-lg shadow-emerald-400/40 hover:shadow-emerald-400/60"
                     >
                       <Link href="/crowdfund">
                         <Rocket className="mr-2 h-5 w-5" />
@@ -255,7 +255,7 @@ export default function HomePage() {
                       return (
                         <div
                           key={item.label}
-                          className={`rounded-2xl bg-gradient-to-br ${item.gradient} p-4 shadow-sm ring-1 ring-emerald-100/70`}
+                          className={`rounded-2xl bg-linear-to-br ${item.gradient} p-4 shadow-sm ring-1 ring-emerald-100/70`}
                         >
                           <div className="flex items-center gap-3">
                             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-teal-700">
@@ -281,10 +281,10 @@ export default function HomePage() {
                   style={{ animationDelay: "0.2s" }}
                 >
                   <div
-                    className="absolute inset-0 rounded-[36px] bg-gradient-to-br from-emerald-200/60 via-white to-cyan-200/60 blur-3xl"
+                    className="absolute inset-0 rounded-[36px] bg-linear-to-br from-emerald-200/60 via-white to-cyan-200/60 blur-3xl"
                     aria-hidden="true"
                   />
-                  <div className="relative rounded-[32px] bg-white/90 p-8 shadow-2xl ring-1 ring-emerald-100 backdrop-blur">
+                  <div className="relative rounded-4xl bg-white/90 p-8 shadow-2xl ring-1 ring-emerald-100 backdrop-blur">
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-500">
@@ -311,7 +311,7 @@ export default function HomePage() {
                       </div>
                       <div className="h-2 w-full rounded-full bg-slate-100">
                         <div
-                          className="h-2 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500"
+                          className="h-2 rounded-full bg-linear-to-r from-emerald-400 to-teal-500"
                           style={{ width: "72%" }}
                         />
                       </div>
@@ -351,7 +351,7 @@ export default function HomePage() {
                         {heroSupporters.map((initials) => (
                           <span
                             key={initials}
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-emerald-400 to-teal-500 text-sm font-semibold text-white shadow"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-linear-to-br from-emerald-400 to-teal-500 text-sm font-semibold text-white shadow"
                           >
                             {initials}
                           </span>
@@ -424,7 +424,7 @@ export default function HomePage() {
 
         <section className="relative w-full py-16 md:py-24 bg-background overflow-hidden">
           <div
-            className="absolute inset-x-0 top-1/3 h-64 bg-gradient-to-r from-emerald-200/40 via-white to-sky-200/40 blur-3xl"
+            className="absolute inset-x-0 top-1/3 h-64 bg-linear-to-r from-emerald-200/40 via-white to-sky-200/40 blur-3xl"
             aria-hidden="true"
           />
           <div className="container px-4 md:px-6 mx-auto relative">
@@ -549,7 +549,7 @@ export default function HomePage() {
         >
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-muted-foreground text-teal-700">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-muted-foreground">
                 Didukung Teknologi Terkini
               </h2>
               <p className="text-muted-foreground max-w-2xl">
@@ -569,7 +569,7 @@ export default function HomePage() {
                 {techPartners.map((partner) => (
                   <div
                     key={partner.id}
-                    className="flex h-10 w-40 flex-shrink-0 items-center justify-center"
+                    className="flex h-10 w-40 shrink-0 items-center justify-center"
                   >
                     {partner.logoSrc ? (
                       <Image
@@ -590,7 +590,7 @@ export default function HomePage() {
                 {techPartners.map((partner) => (
                   <div
                     key={`${partner.id}-dup`}
-                    className="flex h-10 w-40 flex-shrink-0 items-center justify-center"
+                    className="flex h-10 w-40 shrink-0 items-center justify-center"
                     aria-hidden="true"
                   >
                     {partner.logoSrc ? (
@@ -639,7 +639,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex justify-center">
-              <div className="w-full max-w-md rounded-3xl bg-gradient-to-br from-teal-500 via-emerald-400 to-lime-400 p-1 shadow-xl shadow-emerald-200/70 transition-all hover:shadow-emerald-300/80">
+              <div className="w-full max-w-md rounded-3xl bg-linear-to-br from-teal-500 via-emerald-400 to-lime-400 p-1 shadow-xl shadow-emerald-200/70 transition-all hover:shadow-emerald-300/80">
                 <Card className="w-full bg-white/90 backdrop-blur rounded-[26px]">
                   <CardHeader>
                     <CardTitle>Kampanye Pertama Anda</CardTitle>
@@ -668,7 +668,7 @@ export default function HomePage() {
 
         <section className="w-full py-16 md:py-24">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-teal-500 via-emerald-400 to-lime-400 p-10 text-white shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-teal-500 via-emerald-400 to-lime-400 p-10 text-white shadow-2xl">
               <div
                 className="absolute -right-10 -bottom-10 h-56 w-56 rounded-full bg-white/20 blur-3xl"
                 aria-hidden="true"
@@ -704,7 +704,7 @@ export default function HomePage() {
         <TestimonialSlider />
       </main>
 
-      <footer className="w-full bg-gradient-to-b from-white via-emerald-50 to-emerald-100 border-t border-emerald-100/70 py-12 md:py-16">
+      <footer className="w-full bg-linear-to-b from-white via-emerald-50 to-emerald-100 border-t border-emerald-100/70 py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
