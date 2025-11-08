@@ -67,7 +67,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           : `${STAGE_BORDERS[project.stage]} hover:border-opacity-100` 
       }`}
     >
-      {/* Visualisasi Proyek */}
+      {/* Visualisasi Pohon */}
       <div className={`h-48 flex items-center justify-center relative overflow-hidden transition-all duration-300 ease-out ${
         isExpired
           ? 'bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900'
@@ -109,11 +109,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
-      {/* Info Proyek */}
+      {/* Info Pohon */}
       <div className="p-4 space-y-4">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="font-semibold text-foreground text-lg">Proyek #{project.id.toString()}</h3>
+            <h3 className="font-semibold text-foreground text-lg">Pohon #{project.id.toString()}</h3>
             <div className="flex gap-2 mt-1 flex-wrap">
               {isExpired ? (
                 <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-gray-500/20 text-gray-700 dark:text-gray-300 border border-gray-500/30">

@@ -19,7 +19,7 @@ export default function Header() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-foreground">Domain</h1>
-              <p className="text-xs text-muted-foreground">Decentralized Crowdfunding</p>
+              <p className="text-xs text-muted-foreground">Decentralized Plant Crowdfunding</p>
             </div>
           </Link>
         </div>
@@ -34,7 +34,7 @@ export default function Header() {
           <Button variant="ghost" asChild>
             <Link href="/crowdfund" className="flex items-center gap-2">
               <Rocket className="w-4 h-4" />
-              Lihat Proyek
+              Lihat Pohon
             </Link>
           </Button>
           <div className="pl-4">

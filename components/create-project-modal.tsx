@@ -34,9 +34,9 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Lightbulb className="w-5 h-5 text-accent" />
-            Buat Proyek Crowdfunding Baru
+            Buat pohon Baru
           </DialogTitle>
-          <DialogDescription>Isi detail proyek Anda untuk memulai penggalangan dana.</DialogDescription>
+          <DialogDescription>Isi detail pohon Anda untuk memulai penggalangan dana.</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4">
@@ -62,11 +62,11 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
           {/* Info card */}
           <Card className="p-3 bg-muted/30 border-primary/20">
             <p className="text-xs text-muted-foreground">
-              💰 <strong>Biaya per Proyek</strong>: {PLANT_PRICE} ETH.
+              💰 <strong>Biaya per pohon</strong>: {PLANT_PRICE} ETH.
               <br />
               ⏱️ <strong>Durasi Kampanye (Demo)</strong>: 1 menit per tahap.
               <br />
-              ⚠️ <strong>Aturan</strong>: Proyek harus didanai secara berkala agar tidak &quot;mati&quot; dan gagal.
+              ⚠️ <strong>Aturan</strong>: pohon harus didanai secara berkala agar tidak &quot;mati&quot; dan gagal.
             </p>
           </Card>
 

@@ -15,7 +15,7 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
   const { plants: projects } = usePlants() // ganti nama
   const { isConnected, address } = useContract()
 
-  // Sesuaikan logika ini dengan stage proyek Anda
+  // Sesuaikan logika ini dengan stage Pohon Anda
   const successfulProjects = projects.filter((p) => p.stage === ProjectStage.ADULT).length // BLOOMING -> SUCCESSFUL
   const activeProjects = projects.filter((p) => !p.isDead).length
   const failedProjects = projects.filter((p) => p.isDead).length // isDead -> FAILED/EXPIRED
@@ -33,7 +33,7 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
             <div className="flex items-center justify-between p-2 rounded bg-muted/50 hover:bg-muted transition-all duration-300 ease-out">
               <span className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Layers className="w-4 h-4 text-primary" />
-                Total Proyek
+                Total Pohon
               </span>
               <span className="font-semibold text-foreground">{projects.length}</span>
             </div>
@@ -101,7 +101,7 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
         </h3>
         <div className="space-y-3 text-sm">
           <div className="p-3 rounded bg-primary/10 border border-primary/20">
-            <p className="text-xs text-muted-foreground mb-1">Biaya Membuat Proyek</p>
+            <p className="text-xs text-muted-foreground mb-1">Biaya Menanam Pohon</p>
             <p className="font-semibold text-foreground">{PLANT_PRICE} ETH</p>
           </div>
           <div className="p-3 rounded bg-green-500/10 border border-green-500/20">
@@ -122,11 +122,11 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
       >
         <h3 className="font-semibold text-foreground mb-3">Cara Kerja (Demo)</h3>
         <div className="space-y-2 text-xs text-muted-foreground">
-          <p>1. Buat proyek (biaya {PLANT_PRICE} ETH)</p>
+          <p>1. Buat Pohon (biaya {PLANT_PRICE} ETH)</p>
           <p>2. Ajak orang mendanai (GRATIS!)</p>
           <p>3. Capai target {HARVEST_REWARD} ETH dalam {STAGE_DURATION * 3 / 60} menit</p>
           <p>4. Klaim dana jika target tercapai</p>
-          <p className="text-red-500 font-semibold pt-2">⚠️ Proyek gagal jika waktu habis sebelum target!</p>
+          <p className="text-red-500 font-semibold pt-2">⚠️ Pohon gagal jika waktu habis sebelum target!</p>
         </div>
       </Card>
     </div>

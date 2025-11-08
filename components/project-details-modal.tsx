@@ -82,7 +82,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <span className="text-3xl">{isExpired ? <XCircle/> : STAGE_EMOJIS[project.stage]}</span>
-            Proyek #{project.id.toString()}
+            Pohon #{project.id.toString()}
             {isExpired && <span className="text-sm text-gray-500">(Gagal)</span>}
           </DialogTitle>
         </DialogHeader>
@@ -101,7 +101,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
             )}
           </div>
 
-          {/* Info Proyek */}
+          {/* Info Pohon */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-muted-foreground">Quantity</span>
@@ -154,7 +154,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
               <p className="text-xs text-red-600 dark:text-red-400 animate-pulse">🚨 Kritis! Kampanye akan segera berakhir!</p>
             )}
             {isExpired && (
-              <p className="text-xs text-gray-600 dark:text-gray-400">⌛ Waktu habis. Proyek gagal didanai.</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">⌛ Waktu habis. Pohon gagal didanai.</p>
             )}
           </div>
 
@@ -203,26 +203,26 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                   Target Tercapai!
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Anda dapat mengklaim dana yang terkumpul.
+                  Anda dapat mengklaim NFT.
                 </p>
-                <p className="flex items-center justify-center gap-2 font-bold text-lg text-primary">
+                {/* <p className="flex items-center justify-center gap-2 font-bold text-lg text-primary">
                   <Coins className="w-5 h-5" />
                   {HARVEST_REWARD} ETH
-                </p>
+                </p> */}
               </div>
             </Card>
           )}
 
-          {/* Info Proyek Gagal (Pengganti Dead Plant) */}
+          {/* Info Pohon Gagal (Pengganti Dead Plant) */}
           {isExpired && (
             <Card className="p-4 bg-linear-to-br from-gray-500/10 to-gray-500/10 border-gray-500/30">
               <div className="text-center space-y-2">
                 <p className="font-semibold text-foreground flex items-center justify-center gap-2">
                   <XCircle className="w-4 h-4 text-gray-500" />
-                  Proyek Gagal
+                  Pohon Gagal Tanam
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Proyek ini gagal mencapai target pendanaan sebelum waktu habis.
+                  Pohon ini gagal mencapai target pendanaan sebelum waktu habis.
                 </p>
               </div>
             </Card>
@@ -272,7 +272,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                     ) : (
                       <>
                         <Coins className="w-4 h-4" />
-                        Danai Proyek (Demo)
+                        Danai Pohon (Demo)
                       </>
                     )}
                   </Button>

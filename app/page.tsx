@@ -205,11 +205,11 @@ export default function HomePage() {
                 </CardContent>
               </Card>
 
-              {/* Stat 2: Total Proyek */}
+              {/* Stat 2: Total Pohon */}
               <Card className="bg-card shadow-sm hover:shadow-lg transition-shadow">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
-                    Total Proyek
+                    Total Pohon
                   </CardTitle>
                   <Package className="h-5 w-5 text-muted-foreground" />
                 </CardHeader>
@@ -218,7 +218,7 @@ export default function HomePage() {
                     {globalStats.totalProjects}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Proyek telah dibuat
+                    Pohon telah dibuat
                   </p>
                 </CardContent>
               </Card>
@@ -335,8 +335,8 @@ export default function HomePage() {
                 Domain adalah bukti konsep (PoC) yang menunjukkan bagaimana
                 aplikasi crowdfunding dapat dibangun di atas jaringan Lisk.
                 Proyek ini mendemonstrasikan penggunaan kontrak pintar untuk
-                mengelola kampanye pendanaan, kontribusi, dan pencairan dana
-                secara otomatis dan aman.
+                mengelola pendanaan, kontribusi, dan pencairan dana
+                secara otomatis dan aman terkait penanaman pohon di Indonesia.
               </p>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Tujuan kami adalah memberdayakan kreator dengan memberi mereka
@@ -356,10 +356,10 @@ export default function HomePage() {
                   </CardHeader>
                   <CardContent className="grid gap-4">
                     <Button size="lg" asChild>
-                      <Link href="/crowdfund">Jelajahi Proyek</Link>
+                      <Link href="/crowdfund">Jelajahi Pohon</Link>
                     </Button>
                     <p className="text-xs text-center text-muted-foreground">
-                      Atau buat proyek Anda sendiri (setelah terhubung).
+                      Atau buat Pohon Anda sendiri (setelah terhubung).
                     </p>
                   </CardContent>
                 </Card>
@@ -407,21 +407,21 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Proyek</h4>
+              <h4 className="font-semibold text-foreground mb-4">Pohon</h4>
               <nav className="flex flex-col gap-3">
                 <Link
                   href="/crowdfund"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   prefetch={false}
                 >
-                  Jelajahi Proyek
+                  Jelajahi Pohon
                 </Link>
                 <Link
                   href="/crowdfund"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   prefetch={false}
                 >
-                  Buat Proyek
+                  Buat Pohon
                 </Link>
                 <Link
                   href="#"
