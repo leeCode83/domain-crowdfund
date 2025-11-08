@@ -83,7 +83,7 @@ export function TestimonialSlider() {
                 <div className="p-1 h-full">
                   <Card className="h-full flex flex-col justify-between shadow-sm hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 flex flex-col items-start gap-4">
-                      <blockquote className="text-lg font-medium text-foreground border-l-4 border-teal-700 pl-4 italic">
+                      <blockquote className="text-lg font-medium text-teal-700 border-l-4 border-teal-700 pl-4 italic">
                         &quot;{testimonial.quote}&quot;
                       </blockquote>
                       <div className="flex items-center gap-4 pt-4">
@@ -95,7 +95,7 @@ export function TestimonialSlider() {
                           className="rounded-full object-cover"
                         />
                         <div>
-                          <p className="font-semibold text-foreground">
+                          <p className="font-semibold text-teal-700">
                             {testimonial.name}
                           </p>
                           <p className="text-sm text-muted-foreground">
@@ -119,7 +119,7 @@ export function TestimonialSlider() {
                 <div className="p-1 h-full">
                   <Card className="h-full flex flex-col justify-between shadow-sm hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 flex flex-col items-start gap-4">
-                      <blockquote className="text-lg font-medium text-foreground border-l-4 border-teal-700 pl-4 italic">
+                      <blockquote className="text-lg font-medium text-teal-700 border-l-4 border-teal-700 pl-4 italic">
                         &quot;{testimonial.quote}&quot;
                       </blockquote>
                       <div className="flex items-center gap-4 pt-4">
@@ -131,7 +131,7 @@ export function TestimonialSlider() {
                           className="rounded-full object-cover"
                         />
                         <div>
-                          <p className="font-semibold text-foreground">
+                          <p className="font-semibold text-teal-700">
                             {testimonial.name}
                           </p>
                           <p className="text-sm text-muted-foreground">

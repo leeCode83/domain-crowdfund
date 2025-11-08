@@ -30,38 +30,38 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Lightbulb className="w-5 h-5 text-accent" />
-            Buat pohon Baru
-          </DialogTitle>
-          <DialogDescription>Isi detail pohon Anda untuk memulai penggalangan dana.</DialogDescription>
-        </DialogHeader>
+      <DialogContent className="max-w-md border-none bg-transparent p-0">
+        <div className="paper-panel paper-panel--soft p-6 sm:p-8 space-y-6">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-2xl">
+              <Lightbulb className="w-5 h-5 text-accent" />
+              Buat Pohon Baru
+            </DialogTitle>
+            <DialogDescription>
+              Isi detail pohon Anda untuk memulai penggalangan dana.
+            </DialogDescription>
+          </DialogHeader>
 
-        <div className="space-y-4">
-          {/* Form UI */}
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label>Kuantitas</Label>
+              <Label className="text-sm font-semibold text-teal-700">Kuantitas</Label>
               <div className="flex items-center gap-3">
-                <Button variant="outline" size="icon" className="h-8 w-8" onClick={handleDecrement} disabled={quantity <= 1}>
+                <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={handleDecrement} disabled={quantity <= 1}>
                   <Minus className="h-4 w-4" />
                 </Button>
-                <span className="font-bold text-lg w-10 text-center">{quantity}</span>
-                <Button variant="outline" size="icon" className="h-8 w-8" onClick={handleIncrement}>
+                <span className="font-bold text-2xl w-12 text-center">{quantity}</span>
+                <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={handleIncrement}>
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
-              <p className="text-xs text-white">
+              <p className="text-xs text-muted-foreground">
                 Total Biaya: {(parseFloat(PLANT_PRICE) * quantity).toFixed(4)} ETH
               </p>
             </div>
           </div>
 
-          {/* Info card */}
-          <Card className="p-3 bg-muted/30 border-teal-700/20">
-            <p className="text-xs text-muted-foreground">
+          <Card className="paper-panel paper-panel--mint p-4 text-xs text-muted-foreground">
+            <p>
               💰 <strong>Biaya per pohon</strong>: {PLANT_PRICE} ETH.
               <br />
               ⏱️ <strong>Durasi Kampanye (Demo)</strong>: 1 menit per tahap.
@@ -70,12 +70,11 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
             </p>
           </Card>
 
-          {/* Action buttons */}
           <div className="flex gap-2 pt-2">
             <Button
               variant="outline"
               onClick={onClose}
-              className="flex-1 bg-transparent"
+              className="flex-1 rounded-full"
               disabled={loading}
             >
               Batal
@@ -83,11 +82,11 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
             <Button
               onClick={() => handleCreate(quantity)}
               disabled={loading}
-              className="flex-1 gap-2 bg-teal-400 hover:bg-teal-400/90"
+              className="flex-1 gap-2 rounded-full bg-gradient-to-r from-teal-400 via-emerald-400 to-lime-400 text-emerald-950"
             >
               {loading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-teal-700-foreground border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-emerald-900 border-t-transparent rounded-full animate-spin" />
                   Membuat...
                 </>
               ) : (

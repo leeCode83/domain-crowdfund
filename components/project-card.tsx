@@ -3,28 +3,19 @@
 import { Card } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Coins, CheckCircle, Clock, XCircle, RefreshCw, Target, Users } from "lucide-react"
-// Impor tipe yang benar
-import {
-  GrowthStage,
-  Plant as Project,
-  GrowthStage as ProjectStage,
-  STAGE_NAMES
-} from "@/types/contracts"
+import { GrowthStage, Plant as Project, GrowthStage as ProjectStage, STAGE_NAMES } from "@/types/contracts"
 import {
   formatPlantAge,
   getClientWaterLevel as getFundingPercentage,
   isCritical as isFundingLow,
   isStageOutOfSync
 } from "@/lib/contract"
-import Image from "next/image"
-
-// Hapus 'enum MockStage' yang error
 
 const STAGE_EMOJIS = {
-  [ProjectStage.SEED]: "💡",     // Gunakan ProjectStage.SEED (alias untuk GrowthStage.SEED)
-  [ProjectStage.SPROUT]: "🚀",   // Gunakan ProjectStage.SPROUT
-  [ProjectStage.GROWING]: "⌛", // Gunakan ProjectStage.GROWING
-  [ProjectStage.ADULT]: "https://share.google/5FEBtCE9rV5JasJXZ",  // Gunakan ProjectStage.BLOOMING
+  [ProjectStage.SEED]: "💡",
+  [ProjectStage.SPROUT]: "🌿",
+  [ProjectStage.GROWING]: "🌼",
+  [ProjectStage.ADULT]: "🌳",
 }
 
 const STAGE_BACKGROUNDS = {
@@ -48,10 +39,7 @@ const STAGE_BORDERS = {
   [ProjectStage.ADULT]: "border-emerald-300 dark:border-emerald-700",
 }
 
-// Hapus 'MOCK_STAGE_NAMES'
-
 export default function ProjectCard({ project }: { project: Project }) {
-  // Gunakan STAGE_NAMES yang diimpor
   const stageKey = STAGE_NAMES[project.stage]
 
   const fundingPercentage = getFundingPercentage(project)
@@ -62,160 +50,93 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <Card
-      className={`overflow-hidden transition-all duration-300 ease-out animate-grow border-2 cursor-pointer group hover:shadow-lg hover:-translate-y-1 ${isExpired
-        ? 'border-gray-500 opacity-75 hover:border-gray-600'
-        // Gunakan project.stage secara langsung
-        : `${STAGE_BORDERS[project.stage]} hover:border-opacity-100`
+      className={`paper-panel overflow-hidden transition-all duration-300 ease-out cursor-pointer group hover:shadow-emerald-200/80 ${isExpired ? "opacity-80" : ""
         }`}
     >
-      {/* Visualisasi Pohon */}
-      <div className={`h-48 flex items-center justify-center relative overflow-hidden transition-all duration-300 ease-out ${isExpired
-        ? 'bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900'
-        // Gunakan project.stage secara langsung
-        : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]} ${STAGE_HOVER_BACKGROUNDS[project.stage]}`
-        }`}>
-        {isExpired ? (
-          <div className="text-7xl">
-            <img
-              src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
-              className="object-cover"
-              alt="DEAD"
-            />
-          </div>
-        ) : (
-          <>
-            {/* Gunakan project.stage secara langsung */}
+      <div
+        className={`relative h-48 flex items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/70 transition-all duration-300 ease-out ${isExpired
+          ? "from-gray-100 to-gray-200 bg-gradient-to-br"
+          : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]} ${STAGE_HOVER_BACKGROUNDS[project.stage]}`
+          }`}
+      >
+        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.9),transparent_55%)]" />
+        <div className="relative flex h-full flex-col items-center justify-center gap-3 text-6xl">
+          <span className="drop-shadow-sm">{isExpired ? "🥀" : STAGE_EMOJIS[project.stage]}</span>
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-slate-600">
+            {isExpired ? "Gagal" : stageKey}
+          </p>
+        </div>
 
-            {
-              project.isDead == true
-                ? (
-                  <img
-                    src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
-                    className="object-cover"
-                    alt="DEAD"
-                  />
-                ) : project.stage == GrowthStage.ADULT ? (
-                  <img
-                    src={"https://media.tenor.com/5UwGb1HKOdwAAAAM/tree.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
-                  />
-                ) : project.stage == GrowthStage.GROWING ? (
-                  <img
-                    src={"https://media.tenor.com/rAQr72pb9r8AAAAM/guardians-of-the-galaxy-groot.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
-                  />
-                ) : project.stage == GrowthStage.SPROUT ? (
-                  <img
-                    src={"https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybGZhc3AxZjhzc3I3NW1jMjFienptOXA2NGJwaXpxMTN3MTN6bzloZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JI9XYDpaAIxvNIH0g9/source.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
-                  />
-                ) : project.stage == GrowthStage.SEED ? (
-                  <img
-                    src={"https://wilfthebearfacedblogger.wordpress.com/wp-content/uploads/2019/10/seed.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
-                  />
-                ) : (
-                  <>
-                    <div className="text-7xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
-                  </>
-                )
-            }
-
-            {/* Perbaiki perbandingan di sini */}
-            {project.stage === ProjectStage.SEED && (
-              <>
-                <div className="absolute top-4 right-4 text-2xl opacity-30 animate-pulse">💰</div>
-              </>
-            )}
-            {/* Perbaiki perbandingan di sini */}
-            {project.stage === ProjectStage.SPROUT && (
-              <>
-                <div className="absolute top-3 left-3 animate-bounce-in">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                </div>
-              </>
-            )}
-          </>
-        )}
         {!isExpired && stageOutOfSync && (
-          <div className="absolute top-3 left-3 animate-pulse">
-            <RefreshCw className="w-5 h-5 text-orange-500" />
-          </div>
+          <span className="absolute top-4 left-4 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-amber-600 shadow">
+            <RefreshCw className="w-3 h-3" />
+            Sinkronkan
+          </span>
         )}
         {!isExpired && fundingLow && (
-          <div className="absolute top-3 right-3 animate-pulse">
-            <Users className="w-6 h-6 text-red-500" />
-            <span className="text-xs text-red-500">Pendanaan Lambat</span>
-          </div>
+          <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-rose-500 shadow">
+            <Users className="w-3 h-3" />
+            Butuh Dukungan
+          </span>
+        )}
+        {isExpired && (
+          <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-gray-500 shadow">
+            <XCircle className="w-3 h-3" />
+            Kadaluarsa
+          </span>
         )}
       </div>
 
-      {/* Info Pohon */}
       <div className="p-4 space-y-4">
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="font-semibold text-foreground text-lg">Pohon #{project.id.toString()}</h3>
-            <div className="flex gap-2 mt-1 flex-wrap">
-              {isExpired ? (
-                <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-gray-500/20 text-gray-700 dark:text-gray-300 border border-gray-500/30">
-                  <XCircle className="w-3 h-3 inline mr-1" /> Gagal
+        <div>
+          <h3 className="font-semibold text-teal-700 text-lg">Pohon #{project.id.toString()}</h3>
+          <div className="flex gap-2 mt-2 flex-wrap">
+            {isExpired ? (
+              <span className="inline-flex items-center gap-1 rounded-full bg-gray-200 px-3 py-1 text-xs font-medium text-gray-600">
+                <XCircle className="w-3 h-3" />
+                Gagal
+              </span>
+            ) : (
+              <>
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
+                  <Clock className="w-3 h-3" />
+                  {stageKey}
                 </span>
-              ) : (
-                <>
-                  <span className={`inline-block px-2 py-1 rounded text-xs font-medium bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30`}>
-                    {/* Perbaiki: Gunakan stageKey langsung, karena sudah string */}
-                    <Clock className="w-3 h-3 inline mr-1" /> {stageKey}
+                {stageOutOfSync && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+                    🔄 Perlu Update
                   </span>
-                  {stageOutOfSync && (
-                    <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30">
-                      🔄 Perlu Update
-                    </span>
-                  )}
-                  {/* Perbaiki perbandingan di sini */}
-                  {project.stage === ProjectStage.SPROUT && (
-                    <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-green-500/20 text-green-700 dark:text-green-300 border border-green-500/30">
-                      <CheckCircle className="w-3 h-3 inline mr-1" /> Sukses!
-                    </span>
-                  )}
-                </>
-              )}
-            </div>
+                )}
+                {project.stage === ProjectStage.SPROUT && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                    <CheckCircle className="w-3 h-3" />
+                    Sukses!
+                  </span>
+                )}
+              </>
+            )}
           </div>
         </div>
 
-        {/* Progress Pendanaan */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="flex items-center gap-1 text-foreground">
+            <span className="flex items-center gap-1 text-teal-700 font-semibold">
               <Target className="w-4 h-4 text-teal-700" />
               Terdanai
             </span>
             <span className="text-muted-foreground font-medium">{progress}%</span>
           </div>
-          <Progress value={progress} className="h-2" />
+          <Progress value={progress} className="h-2 bg-emerald-50" />
         </div>
 
-        {/* Info Meta */}
-        <div className="text-xs text-muted-foreground space-y-1 pt-2 border-t border-border">
-          {/* <p className="flex items-center gap-1">
-            <Coins className="w-3 h-3" />
-            Target: 0.003 ETH
-          </p> */}
+        <div className="text-xs text-muted-foreground space-y-2 pt-2 border-t border-emerald-50">
           <p className="flex items-center gap-1">
             <Clock className="w-3 h-3" />
             Dimulai: {formatPlantAge(project.plantedDate)}
+          </p>
+          <p className="flex items-center gap-1">
+            <Users className="w-3 h-3 text-emerald-500" />
+            Donatur aktif: Demo
           </p>
         </div>
       </div>

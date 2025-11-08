@@ -8,74 +8,63 @@
   /* 🎨 TEMA TERANG (DEFAULT)    */
   /* ================================== */
 
-  --background: oklch(0.97 0.015 250);
-  --foreground: oklch(0.15 0.02 250);
+  --background: oklch(0.97 0.025 150);
+  --foreground: oklch(0.18 0.03 160);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 250);
+  --card: oklch(0.99 0.01 150);
+  --card-foreground: oklch(0.18 0.03 160);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 250);
+  --popover-foreground: oklch(0.2 0.02 160);
 
-  --teal-700: oklch(73.067% 0.21737 142.963);
+  --teal-700: oklch(0.7 0.12 155);
   --teal-700-foreground: oklch(0.98 0 0);
 
-  --secondary: oklch(0.94 0.01 250);
-  --secondary-foreground: oklch(0.3 0.01 250);
+  --secondary: oklch(0.95 0.02 150);
+  --secondary-foreground: oklch(0.35 0.02 160);
 
-  --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.45 0.01 250);
+  --muted: oklch(0.94 0.015 150);
+  --muted-foreground: oklch(0.4 0.03 160);
 
-  --accent: oklch(0.6 0.15 190);
-  /* Cyan/Teal Terang */
-  --accent-foreground: oklch(0.98 0 0);
-  /* Putih (Fixed) */
+  --accent: oklch(0.78 0.12 145);
+  --accent-foreground: oklch(0.16 0.02 160);
 
   --destructive: oklch(0.5 0.2 25);
   --destructive-foreground: oklch(0.95 0.01 25);
 
-  --border: oklch(0.88 0.02 250);
-  --input: oklch(0.98 0.01 250);
-  --ring: oklch(73.067% 0.21737 142.963);
+  --border: oklch(0.9 0.02 150);
+  --input: oklch(0.97 0.015 150);
+  --ring: oklch(0.72 0.12 150);
 
-  --radius: 0.625rem;
-  /* 10px */
+  --radius: 1.75rem;
+  /* 28px */
 
 
   /* ================================== */
   /* 🎨 TEMA GELAP (.dark)      */
   /* ================================== */
   &.dark {
-    --background: oklch(0.1 0.02 250);
-    /* Biru-hitam pekat */
-    --foreground: oklch(0.95 0.01 250);
-    /* Teks Putih kebiruan */
+    --background: oklch(0.12 0.03 180);
+    --foreground: oklch(0.95 0.02 170);
 
-    --card: oklch(0.15 0.02 250);
-    --card-foreground: oklch(0.95 0.01 250);
+    --card: oklch(0.2 0.03 180);
+    --card-foreground: oklch(0.96 0.02 170);
 
-    --popover: oklch(0.12 0.02 250);
-    --popover-foreground: oklch(0.95 0.01 250);
+    --popover: oklch(0.18 0.03 180);
+    --popover-foreground: oklch(0.96 0.02 170);
 
     /* Samakan hue dengan tema terang supaya brand hijau konsisten */
-    --teal-700: oklch(0.55 0.16 150);
+    --teal-700: oklch(0.55 0.12 160);
     --teal-700-foreground: oklch(0.98 0 0);
 
-    --secondary: oklch(0.2 0.02 250);
-    --secondary-foreground: oklch(0.8 0.01 250);
+    --secondary: oklch(0.22 0.02 180);
+    --secondary-foreground: oklch(0.85 0.02 170);
 
-    --muted: oklch(0.18 0.01 250);
-    --muted-foreground: oklch(0.6 0.01 250);
+    --muted: oklch(0.2 0.015 180);
+    --muted-foreground: oklch(0.75 0.02 170);
 
-    /* [PERBAIKAN DI SINI] 
-      - Aksen diubah jadi GELAP 
-      - Teks aksen diubah jadi TERANG
-      Ini memperbaiki tombol outline di mode gelap.
-    */
-    --accent: oklch(0.3 0.08 190);
-    /* Cyan/Teal GELAP */
-    --accent-foreground: oklch(0.95 0.01 250);
-    /* Putih kebiruan */
+    --accent: oklch(0.34 0.08 160);
+    --accent-foreground: oklch(0.92 0.02 170);
 
     --destructive: oklch(0.5 0.2 25);
     --destructive-foreground: oklch(0.95 0.01 25);
@@ -120,7 +109,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-teal-700;
+    background: #f8fafc;
   }
 }
 
@@ -291,5 +281,77 @@
 
   .animate-bounce-in {
     animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* ================================
+        🌿 PAPER / COLLAGE UTILITIES
+     ================================ */
+  .paper-panel {
+    position: relative;
+    border-radius: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    color: var(--foreground);
+  }
+
+  .paper-panel--soft {
+    background: linear-gradient(180deg, #fff, #f8fafc);
+  }
+
+  .paper-panel--mint {
+    background: linear-gradient(180deg, #f6fffb, #fefefe);
+  }
+
+  .leaf-hero {
+    background: linear-gradient(180deg, #f2fff6, #ffffff);
+  }
+
+  .leaf-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMjAwJyB2aWV3Qm94PScwIDAgMjAwIDIwMCc+PHBhdGggZD0nTTEwMCAyMGMtMTUgMjUtMTUgNTUgMCA4MCAxNS0yNSAxNS01NSAwLTgweicgZmlsbD0nJTIzZDVmNWUzJyBvcGFjaXR5PScuNCcvPjxwYXRoIGQ9J00zMCAxMjBjMjAtMTAgNDAtMTAgNjAgMC0yMCAxMC00MCAxMC02MCAweicgZmlsbD0nJTIzYzNlZGQzJyBvcGFjaXR5PScuMzUnLz48cGF0aCBkPSdNMTMwIDE1MGMyNS0xMiA0NS0xMiA3MCAwLTI1IDEyLTQ1IDEyLTcwIDB6JyBmaWxsPSclMjNiMGUzYzQnIG9wYWNpdHk9Jy4zJy8+PC9zdmc+");
+    background-repeat: repeat;
+    background-size: 320px;
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    border-radius: inherit;
+  }
+
+  .paper-divider {
+    position: relative;
+    height: 16px;
+    background-image: radial-gradient(circle at 12px 8px, rgba(255, 255, 255, 0.85) 14px, transparent 15px);
+    background-size: 24px 16px;
+    opacity: 0.7;
+  }
+
+  .scribble-highlight {
+    position: relative;
+    display: inline-block;
+  }
+
+  .scribble-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.25em;
+    height: 0.8em;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.6), rgba(181, 236, 204, 0.7));
+    transform: rotate(-2deg);
+    z-index: -1;
+  }
+
+  .soft-spot {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 999px;
+    filter: blur(60px);
+    opacity: 0.35;
+    pointer-events: none;
   }
 }
