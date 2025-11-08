@@ -211,7 +211,7 @@ export function usePlants() {
           title: 'Plant harvested!',
           description: needsStageUpdate
             ? 'Stage synced and harvested successfully! You received 0.003 ETH 🎉'
-            : 'You received 0.003 ETH reward! 🎉',
+            : 'You received your NFT! 🎉',
         })
 
         // --- PERBAIKAN ---
