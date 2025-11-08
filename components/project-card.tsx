@@ -199,7 +199,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
             <span className="flex items-center gap-1 text-foreground">
-              <Target className="w-4 h-4 text-primary" />
+              <Target className="w-4 h-4 text-teal-700" />
               Terdanai
             </span>
             <span className="text-muted-foreground font-medium">{progress}%</span>

@@ -22,6 +22,7 @@ import {
   Users,
   Zap,
   Package,
+  TreePalm,
 } from "lucide-react";
 import Image from "next/image"; // Import komponen Image dari Next.js
 import Link from "next/link";
@@ -54,7 +55,7 @@ export default function HomePage() {
           {/* Efek Aurora Background (Opacity disesuaikan untuk tema terang) */}
           <div className="absolute inset-0 -z-10 opacity-70">
             {/* Gradien ungu/biru */}
-            <div className="absolute left-[10%] top-[10%] h-[400px] w-[400px] rounded-full bg-gradient-radial from-primary/10 to-transparent blur-[128px] animate-aurora" />
+            <div className="absolute left-[10%] top-[10%] h-[400px] w-[400px] rounded-full bg-gradient-radial from-teal-700/10 to-transparent blur-[128px] animate-aurora" />
             {/* Gradien pink/magenta */}
             <div
               className="absolute right-[10%] bottom-[5%] h-[400px] w-[400px] rounded-full bg-gradient-radial from-accent/10 to-transparent blur-[128px] animate-aurora"
@@ -79,7 +80,7 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     asChild
-                    className="shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-shadow"
+                    className="bg-teal-700 shadow-lg shadow-teal-700/20 hover:shadow-teal-700/30 transition-shadow"
                   >
                     <Link href="/crowdfund">
                       <Rocket className="mr-2 h-5 w-5" />
@@ -98,7 +99,7 @@ export default function HomePage() {
                 className="flex justify-center animate-slide-in-up"
                 style={{ animationDelay: "0.2s" }}
               >
-                <Layers className="w-48 h-48 lg:w-72 lg:h-72 text-primary animate-float" />
+                <TreePalm className="w-48 h-48 lg:w-72 lg:h-72 text-teal-700 animate-float" />
               </div>
             </div>
           </div>
@@ -108,7 +109,7 @@ export default function HomePage() {
         <section id="features" className="w-full py-16 md:py-24 bg-muted/50">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <div className="inline-block rounded-lg bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
+              <div className="inline-block rounded-lg bg-teal-400/20 px-3 py-1 text-sm font-medium text-teal-700">
                 Fitur Unggulan
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -125,8 +126,8 @@ export default function HomePage() {
               <Card className="bg-card shadow-sm hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6 text-center sm:text-left">
                   <div className="mb-4 flex justify-center sm:justify-start">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                      <ShieldCheck className="h-8 w-8 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal-400/10">
+                      <ShieldCheck className="h-8 w-8 text-teal-700" />
                     </div>
                   </div>
                   <h3 className="mb-2 text-xl font-bold">Transparan & Aman</h3>
@@ -141,8 +142,8 @@ export default function HomePage() {
               <Card className="bg-card shadow-sm hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6 text-center sm:text-left">
                   <div className="mb-4 flex justify-center sm:justify-start">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                      <Zap className="h-8 w-8 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal-400/10">
+                      <Zap className="h-8 w-8 text-teal-700" />
                     </div>
                   </div>
                   <h3 className="mb-2 text-xl font-bold">Biaya Rendah</h3>
@@ -156,8 +157,8 @@ export default function HomePage() {
               <Card className="bg-card shadow-sm hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6 text-center sm:text-left">
                   <div className="mb-4 flex justify-center sm:justify-start">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                      <Target className="h-8 w-8 text-primary" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal-400/10">
+                      <Target className="h-8 w-8 text-teal-700" />
                     </div>
                   </div>
                   <h3 className="mb-2 text-xl font-bold">Pendanaan Global</h3>
@@ -346,7 +347,7 @@ export default function HomePage() {
 
             {/* Kartu CTA dengan Border Gradien (Aksen baru) */}
             <div className="flex justify-center">
-              <div className="w-full max-w-md rounded-xl bg-gradient-to-br from-primary via-accent to-primary/50 p-1 transition-all hover:shadow-lg hover:shadow-primary/20">
+              <div className="w-full max-w-md rounded-xl bg-gradient-to-br from-teal-700 via-accent to-teal-700/50 p-1 transition-all hover:shadow-lg hover:shadow-teal-700/20">
                 <Card className="w-full bg-card">
                   <CardHeader>
                     <CardTitle>Mulai Sekarang</CardTitle>
@@ -367,7 +368,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        
+
         {/* Panggilan ke TestimonialSlider sudah benar */}
         <TestimonialSlider />
       </main>
@@ -385,21 +386,21 @@ export default function HomePage() {
                 <Link
                   href="#"
                   aria-label="Twitter"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-teal-700 transition-colors"
                 >
                   <Twitter className="w-6 h-6" />
                 </Link>
                 <Link
                   href="#"
                   aria-label="Github"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-teal-700 transition-colors"
                 >
                   <Github className="w-6 h-6" />
                 </Link>
                 <Link
                   href="#"
                   aria-label="Gitlab"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-teal-700 transition-colors"
                 >
                   <Gitlab className="w-6 h-6" />
                 </Link>
@@ -411,21 +412,21 @@ export default function HomePage() {
               <nav className="flex flex-col gap-3">
                 <Link
                   href="/crowdfund"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Jelajahi Pohon
                 </Link>
                 <Link
                   href="/crowdfund"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Buat Pohon
                 </Link>
                 <Link
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Cara Kerja
@@ -438,14 +439,14 @@ export default function HomePage() {
               <nav className="flex flex-col gap-3">
                 <Link
                   href="#about"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Tentang Kami
                 </Link>
                 <Link
                   href="#features"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Fitur
@@ -458,14 +459,14 @@ export default function HomePage() {
               <nav className="flex flex-col gap-3">
                 <Link
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Terms of Service
                 </Link>
                 <Link
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-teal-700 transition-colors"
                   prefetch={false}
                 >
                   Privacy Policy

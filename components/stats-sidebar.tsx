@@ -25,14 +25,14 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
       {/* Statistik Platform */}
       <Card className="p-4 bg-linear-to-br from-card to-card/50 border border-border animate-slide-in-up hover:shadow-lg transition-all duration-300 ease-out">
         <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-          <Layers className="w-5 h-5 text-primary" />
+          <Layers className="w-5 h-5 text-teal-700" />
           Statistik Platform
         </h3>
         {isConnected ? (
           <div className="space-y-3">
             <div className="flex items-center justify-between p-2 rounded bg-muted/50 hover:bg-muted transition-all duration-300 ease-out">
               <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Layers className="w-4 h-4 text-primary" />
+                <Layers className="w-4 h-4 text-teal-700" />
                 Total Pohon
               </span>
               <span className="font-semibold text-foreground">{projects.length}</span>
@@ -96,11 +96,11 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
         style={{ animationDelay: "0.2s" }}
       >
         <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-          <Info className="w-5 h-5 text-primary" />
+          <Info className="w-5 h-5 text-teal-700" />
           Info Aturan (Contoh)
         </h3>
         <div className="space-y-3 text-sm">
-          <div className="p-3 rounded bg-primary/10 border border-primary/20">
+          <div className="p-3 rounded bg-teal-400/10 border border-teal-700/20">
             <p className="text-xs text-muted-foreground mb-1">Biaya Menanam Pohon</p>
             <p className="font-semibold text-foreground">{PLANT_PRICE} ETH</p>
           </div>
@@ -110,7 +110,7 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
           </div>
           <div className="p-3 rounded bg-blue-500/10 border border-blue-500/20">
             <p className="text-xs text-muted-foreground mb-1">Biaya Pendanaan</p>
-            <p className="font-semibold text-primary">GRATIS (hanya gas)</p>
+            <p className="font-semibold text-teal-700">GRATIS (hanya gas)</p>
           </div>
         </div>
       </Card>

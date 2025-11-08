@@ -7,72 +7,79 @@
   /* ================================== */
   /* 🎨 TEMA TERANG (DEFAULT)    */
   /* ================================== */
-  
-  --background: oklch(0.97 0.015 250); 
-  --foreground: oklch(0.15 0.02 250); 
-  
-  --card: oklch(1 0 0); 
+
+  --background: oklch(0.97 0.015 250);
+  --foreground: oklch(0.15 0.02 250);
+
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.02 250);
-  
+
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.02 250);
-  
-  --primary: oklch(0.55 0.15 260); 
-  --primary-foreground: oklch(0.98 0 0); 
-  
-  --secondary: oklch(0.94 0.01 250); 
+
+  --teal-700: oklch(73.067% 0.21737 142.963);
+  --teal-700-foreground: oklch(0.98 0 0);
+
+  --secondary: oklch(0.94 0.01 250);
   --secondary-foreground: oklch(0.3 0.01 250);
-  
-  --muted: oklch(0.96 0.01 250); 
-  --muted-foreground: oklch(0.45 0.01 250); 
-  
-  --accent: oklch(0.6 0.15 190); /* Cyan/Teal Terang */
-  --accent-foreground: oklch(0.98 0 0); /* Putih (Fixed) */
-  
-  --destructive: oklch(0.5 0.2 25); 
+
+  --muted: oklch(0.96 0.01 250);
+  --muted-foreground: oklch(0.45 0.01 250);
+
+  --accent: oklch(0.6 0.15 190);
+  /* Cyan/Teal Terang */
+  --accent-foreground: oklch(0.98 0 0);
+  /* Putih (Fixed) */
+
+  --destructive: oklch(0.5 0.2 25);
   --destructive-foreground: oklch(0.95 0.01 25);
-  
-  --border: oklch(0.88 0.02 250); 
-  --input: oklch(0.98 0.01 250); 
-  --ring: oklch(0.55 0.15 260); 
-  
-  --radius: 0.625rem; /* 10px */
+
+  --border: oklch(0.88 0.02 250);
+  --input: oklch(0.98 0.01 250);
+  --ring: oklch(73.067% 0.21737 142.963);
+
+  --radius: 0.625rem;
+  /* 10px */
 
 
   /* ================================== */
   /* 🎨 TEMA GELAP (.dark)      */
   /* ================================== */
   &.dark {
-    --background: oklch(0.1 0.02 250); /* Biru-hitam pekat */
-    --foreground: oklch(0.95 0.01 250); /* Teks Putih kebiruan */
-    
-    --card: oklch(0.15 0.02 250); 
+    --background: oklch(0.1 0.02 250);
+    /* Biru-hitam pekat */
+    --foreground: oklch(0.95 0.01 250);
+    /* Teks Putih kebiruan */
+
+    --card: oklch(0.15 0.02 250);
     --card-foreground: oklch(0.95 0.01 250);
-    
+
     --popover: oklch(0.12 0.02 250);
     --popover-foreground: oklch(0.95 0.01 250);
-    
-    --primary: oklch(0.55 0.15 260); 
-    --primary-foreground: oklch(0.98 0 0);
-    
+
+    --teal-700: oklch(0.55 0.15 260);
+    --teal-700-foreground: oklch(0.98 0 0);
+
     --secondary: oklch(0.2 0.02 250);
     --secondary-foreground: oklch(0.8 0.01 250);
-    
+
     --muted: oklch(0.18 0.01 250);
     --muted-foreground: oklch(0.6 0.01 250);
-    
+
     /* [PERBAIKAN DI SINI] 
       - Aksen diubah jadi GELAP 
       - Teks aksen diubah jadi TERANG
       Ini memperbaiki tombol outline di mode gelap.
     */
-    --accent: oklch(0.3 0.08 190); /* Cyan/Teal GELAP */
-    --accent-foreground: oklch(0.95 0.01 250); /* Putih kebiruan */
-    
+    --accent: oklch(0.3 0.08 190);
+    /* Cyan/Teal GELAP */
+    --accent-foreground: oklch(0.95 0.01 250);
+    /* Putih kebiruan */
+
     --destructive: oklch(0.5 0.2 25);
     --destructive-foreground: oklch(0.95 0.01 25);
-    
-    --border: oklch(0.25 0.02 250); 
+
+    --border: oklch(0.25 0.02 250);
     --input: oklch(0.2 0.02 250);
     --ring: oklch(0.55 0.15 260);
   }
@@ -87,8 +94,8 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-teal-700: var(--teal-700);
+  --color-teal-700-foreground: var(--teal-700-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -110,6 +117,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -121,11 +129,16 @@
 */
 @layer utilities {
   /* ... (Semua @keyframes dan kelas animasi tetap sama) ... */
-  
+
   /* Animasi Marquee (Slider Otomatis) */
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   /* Animasi Aurora (Efek cahaya) */
@@ -134,10 +147,12 @@
       transform: translate(-20%, -20%) scale(1);
       opacity: 0.3;
     }
+
     50% {
       transform: translate(0%, 20%) scale(1.2);
       opacity: 0.5;
     }
+
     100% {
       transform: translate(-20%, -20%) scale(1);
       opacity: 0.3;
@@ -150,6 +165,7 @@
       transform: scale(0.8);
       opacity: 0;
     }
+
     to {
       transform: scale(1);
       opacity: 1;
@@ -157,20 +173,24 @@
   }
 
   @keyframes float {
+
     0%,
     100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-8px);
     }
   }
 
   @keyframes pulse-glow {
+
     0%,
     100% {
       box-shadow: 0 0 0 0 oklch(0.55 0.15 260 / 0.7);
     }
+
     50% {
       box-shadow: 0 0 0 10px oklch(0.55 0.15 260 / 0);
     }
@@ -180,6 +200,7 @@
     0% {
       background-position: -1000px 0;
     }
+
     100% {
       background-position: 1000px 0;
     }
@@ -190,6 +211,7 @@
       transform: translateY(20px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -201,6 +223,7 @@
       transform: translateY(-20px);
       opacity: 0;
     }
+
     to {
       transform: translateY(0);
       opacity: 1;
@@ -212,12 +235,15 @@
       transform: scale(0.3);
       opacity: 0;
     }
+
     50% {
       opacity: 1;
     }
+
     70% {
       transform: scale(1.05);
     }
+
     100% {
       transform: scale(1);
     }
@@ -227,34 +253,41 @@
   .animate-marquee-infinite {
     animation: marquee 40s linear infinite;
   }
+
   .animate-aurora {
     animation: aurora 20s ease-in-out infinite;
   }
+
   .animate-grow {
     animation: grow 0.6s ease-out;
   }
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+
   .animate-pulse-glow {
     animation: pulse-glow 2s infinite;
   }
+
   .animate-shimmer {
     animation: shimmer 2s infinite;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      oklch(var(--foreground) / 0.05), /* Berbasis warna teks */
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        oklch(var(--foreground) / 0.05),
+        /* Berbasis warna teks */
+        transparent);
     background-size: 1000px 100%;
   }
+
   .animate-slide-in-up {
     animation: slide-in-up 0.5s ease-out;
   }
+
   .animate-slide-in-down {
     animation: slide-in-down 0.5s ease-out;
   }
+
   .animate-bounce-in {
     animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }

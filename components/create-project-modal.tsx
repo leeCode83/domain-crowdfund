@@ -60,7 +60,7 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
           </div>
 
           {/* Info card */}
-          <Card className="p-3 bg-muted/30 border-primary/20">
+          <Card className="p-3 bg-muted/30 border-teal-700/20">
             <p className="text-xs text-muted-foreground">
               💰 <strong>Biaya per pohon</strong>: {PLANT_PRICE} ETH.
               <br />
@@ -83,11 +83,11 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
             <Button
               onClick={() => handleCreate(quantity)}
               disabled={loading}
-              className="flex-1 gap-2 bg-primary hover:bg-primary/90"
+              className="flex-1 gap-2 bg-teal-400 hover:bg-teal-400/90"
             >
               {loading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-teal-700-foreground border-t-transparent rounded-full animate-spin" />
                   Membuat...
                 </>
               ) : (

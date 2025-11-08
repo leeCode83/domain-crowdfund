@@ -164,7 +164,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2 text-sm font-medium text-foreground">
-                <Target className="w-4 h-4 text-primary" />
+                <Target className="w-4 h-4 text-teal-700" />
                 Plant Progress
               </span>
               <span className="text-sm font-semibold text-foreground">{Math.floor(progress)}%</span>
@@ -244,7 +244,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                 <p className="text-sm text-muted-foreground">
                   Anda dapat mengklaim NFT.
                 </p>
-                {/* <p className="flex items-center justify-center gap-2 font-bold text-lg text-primary">
+                {/* <p className="flex items-center justify-center gap-2 font-bold text-lg text-teal-700">
                   <Coins className="w-5 h-5" />
                   {HARVEST_REWARD} ETH
                 </p> */}

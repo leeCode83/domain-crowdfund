@@ -36,8 +36,8 @@ export default function ProjectGrid({ onSelectProject, onCreateProject }: Projec
           </div>
         </div>
 
-        <Card className="p-12 text-center border-2 border-dashed border-primary/30">
-          <Layers className="w-16 h-16 mx-auto mb-4 text-primary/50" />
+        <Card className="p-12 text-center border-2 border-dashed border-teal-700/30">
+          <Layers className="w-16 h-16 mx-auto mb-4 text-teal-700/50" />
           <h3 className="text-xl font-semibold text-foreground mb-2">Hubungkan Wallet Anda</h3>
           <p className="text-muted-foreground">
             Silakan hubungkan wallet Anda untuk melihat dan mendanai Pohon.
@@ -58,7 +58,7 @@ export default function ProjectGrid({ onSelectProject, onCreateProject }: Projec
         </div>
 
         <Card className="p-12 text-center">
-          <Loader2 className="w-16 h-16 mx-auto mb-4 text-primary animate-spin" />
+          <Loader2 className="w-16 h-16 mx-auto mb-4 text-teal-700 animate-spin" />
           <p className="text-muted-foreground">Memuat Pohon Anda...</p>
         </Card>
       </div>
@@ -89,7 +89,7 @@ export default function ProjectGrid({ onSelectProject, onCreateProject }: Projec
           </Button>
           <Button
             onClick={onCreateProject}
-            className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
+            className="gap-2 bg-teal-400 hover:bg-teal-400/90 text-teal-700-foreground shadow-md"
           >
             <Plus className="w-4 h-4" />
             Buat Pohon Baru
@@ -98,7 +98,7 @@ export default function ProjectGrid({ onSelectProject, onCreateProject }: Projec
       </div>
 
       {projects.length === 0 ? (
-        <Card className="p-12 text-center border-2 border-dashed border-primary/30">
+        <Card className="p-12 text-center border-2 border-dashed border-teal-700/30">
           <div className="text-6xl mb-4">💡</div>
           <h3 className="text-xl font-semibold text-foreground mb-2">Belum Ada Pohon</h3>
           <p className="text-muted-foreground mb-6">

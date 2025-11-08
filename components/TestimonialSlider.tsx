@@ -50,7 +50,7 @@ export function TestimonialSlider() {
       <div className="container px-4 md:px-6 mx-auto">
         {/* Judul Section (tidak berubah) */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="inline-block rounded-lg bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
+          <div className="inline-block rounded-lg bg-teal-400/20 px-3 py-1 text-sm font-medium text-teal-700">
             Testimoni
           </div>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -83,7 +83,7 @@ export function TestimonialSlider() {
                 <div className="p-1 h-full">
                   <Card className="h-full flex flex-col justify-between shadow-sm hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 flex flex-col items-start gap-4">
-                      <blockquote className="text-lg font-medium text-foreground border-l-4 border-primary pl-4 italic">
+                      <blockquote className="text-lg font-medium text-foreground border-l-4 border-teal-700 pl-4 italic">
                         &quot;{testimonial.quote}&quot;
                       </blockquote>
                       <div className="flex items-center gap-4 pt-4">
@@ -119,7 +119,7 @@ export function TestimonialSlider() {
                 <div className="p-1 h-full">
                   <Card className="h-full flex flex-col justify-between shadow-sm hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6 flex flex-col items-start gap-4">
-                      <blockquote className="text-lg font-medium text-foreground border-l-4 border-primary pl-4 italic">
+                      <blockquote className="text-lg font-medium text-foreground border-l-4 border-teal-700 pl-4 italic">
                         &quot;{testimonial.quote}&quot;
                       </blockquote>
                       <div className="flex items-center gap-4 pt-4">
