@@ -61,10 +61,10 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg border-none bg-transparent p-0">
+      <DialogContent className="max-w-sm border-none bg-transparent p-0">
         <div className="paper-panel paper-panel--mint p-6 sm:p-8 space-y-6">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-2xl">
+            <DialogTitle className="flex items-center gap-2 text-2xl text-slate-700">
               <span className="text-3xl">{isExpired ? <XCircle /> : STAGE_EMOJIS[project.stage]}</span>
               Pohon #{project.id.toString()}
               {isExpired && <span className="text-sm text-gray-500">(Gagal)</span>}
@@ -73,71 +73,51 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
 
           <div className="space-y-6">
             <div
-              className={`relative h-48 rounded-[1.5rem] flex items-center justify-center overflow-hidden border border-white/60 ${isExpired
+              className={`relative w-48 h-48 mx-auto rounded-[1.5rem] overflow-hidden border border-white/60 ${isExpired
                 ? "from-gray-100 to-gray-200 bg-gradient-to-br"
                 : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]}`
                 }`}
             >
               <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.9),transparent_55%)]" />
-              <div className="relative flex flex-col items-center gap-2 text-7xl">
-                <span>{isExpired ? (
-                  <div className="text-7xl">
-                    <img
-                      src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
-                      className="object-cover"
-                      alt="DEAD"
-                    />
-                  </div>
+              <div className="relative w-full h-full">
+                {isExpired ? (
+                  <img
+                    src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
+                    className="w-full h-full object-cover"
+                    alt="DEAD"
+                  />
                 ) : project.stage == GrowthStage.ADULT ? (
                   <img
                     src={"https://media.tenor.com/5UwGb1HKOdwAAAAM/tree.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                     alt="ADULT"
                   />
                 ) : project.stage == GrowthStage.GROWING ? (
                   <img
                     src={"https://media.tenor.com/rAQr72pb9r8AAAAM/guardians-of-the-galaxy-groot.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
+                    className="w-full h-full object-cover"
+                    alt="GROWING"
                   />
                 ) : project.stage == GrowthStage.SPROUT ? (
                   <img
                     src={"https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybGZhc3AxZjhzc3I3NW1jMjFienptOXA2NGJwaXpxMTN3MTN6bzloZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JI9XYDpaAIxvNIH0g9/source.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
+                    className="w-full h-full object-cover"
+                    alt="SPROUT"
                   />
                 ) : project.stage == GrowthStage.SEED ? (
                   <img
                     src={"https://wilfthebearfacedblogger.wordpress.com/wp-content/uploads/2019/10/seed.gif"}
-                    // width={100}
-                    // height={100}
-                    className="object-cover"
-                    alt="ADULT"
+                    className="w-full h-full object-cover"
+                    alt="SEED"
                   />
-                ) :
-                  (
-                    <div className="text-8xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
-                  )}</span>
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-600">
-                  {isExpired ? "Gagal" : stageKey}
-                </p>
+                ) : (
+                  <div className="text-8xl animate-float flex items-center justify-center h-full">{STAGE_EMOJIS[project.stage]}</div>
+                )}
               </div>
               {!isExpired && stageOutOfSync && (
                 <span className="absolute top-4 left-4 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-amber-600 shadow">
                   <RefreshCw className="w-3 h-3" />
                   Sinkronkan
-                </span>
-              )}
-              {!isExpired && (
-                <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-rose-500 shadow">
-                  <Users className="w-3 h-3" />
-                  Butuh Dukungan
                 </span>
               )}
               {isExpired && (
@@ -150,19 +130,19 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
 
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="rounded-2xl bg-white/80 p-4 border border-emerald-50">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Quantity</p>
+                <p className="text-xs uppercase tracking-wide text-slate-500">Quantity</p>
                 <p className="text-lg font-semibold text-teal-700">{project.quantity}</p>
               </div>
               <div className="rounded-2xl bg-white/80 p-4 border border-emerald-50">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Status</p>
+                <p className="text-xs uppercase tracking-wide text-slate-500">Status</p>
                 <p className="text-lg font-semibold text-teal-700">{stageKey}</p>
               </div>
               <div className="rounded-2xl bg-white/80 p-4 border border-emerald-50">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Dimulai</p>
+                <p className="text-xs uppercase tracking-wide text-slate-500">Dimulai</p>
                 <p className="text-lg font-semibold text-teal-700">{formatProjectAge(project.plantedDate)}</p>
               </div>
               <div className="rounded-2xl bg-white/80 p-4 border border-emerald-50">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Pendanaan Terakhir</p>
+                <p className="text-xs uppercase tracking-wide text-slate-500">Pendanaan Terakhir</p>
                 <p className="text-lg font-semibold text-teal-700">{formatLastFunded(project.lastWatered)}</p>
               </div>
             </div>
@@ -187,26 +167,32 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                 <span className="text-sm font-semibold text-teal-700">{currentFunding}%</span>
               </div>
               <Progress value={currentFunding} className="h-3 bg-emerald-50" />
-              {!isExpired && currentFunding < 50 && currentFunding > 20 && (
-                <p className="text-xs text-orange-600">⚠️ Waktu hampir habis!</p>
-              )}
-              {!isExpired && currentFunding <= 20 && currentFunding > 0 && (
-                <p className="text-xs text-red-600 animate-pulse">🚨 Kritis! Kampanye akan segera berakhir!</p>
-              )}
-              {isExpired && (
-                <p className="text-xs text-gray-600">⌛ Waktu habis. Pohon gagal didanai.</p>
-              )}
+              <div className="flex justify-center w-full">
+                {/* Elemen Pembungkus Baru */}
+                {!isExpired && currentFunding < 50 && currentFunding > 20 && (
+                  <p className="text-xs text-orange-600">⚠️ Waktu hampir habis!</p>
+                )}
+                {!isExpired && currentFunding <= 20 && currentFunding > 0 && (
+                  <p className="text-xs text-red-600 animate-pulse">🚨 Kritis! Kampanye akan segera berakhir!</p>
+                )}
+                {isExpired && (
+                  <p className="text-xs text-gray-600">⌛ Waktu habis. Pohon gagal didanai.</p>
+                )}
+                {canClaim && (
+                  <p className="text-xs text-gray-600">Target Tercapai! Anda dapat mengklaim NFT.</p>
+                )}
+              </div>
             </div>
           </div>
 
-          {canClaim && (
+          {/* {canClaim && (
             <Card className="p-4 bg-linear-to-br from-yellow-500/10 to-green-500/10 border-yellow-500/30">
               <div className="text-center space-y-2">
                 <p className="font-semibold text-teal-700 flex items-center justify-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
                   Target Tercapai!
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-slate-500">
                   Anda dapat mengklaim NFT.
                 </p>
               </div>
@@ -220,12 +206,12 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                   <XCircle className="w-4 h-4 text-gray-500" />
                   Pohon Gagal Tanam
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-slate-500">
                   Pohon ini gagal mencapai target pendanaan sebelum waktu habis.
                 </p>
               </div>
             </Card>
-          )}
+          )} */}
 
           <div className="flex gap-2 pt-4">
             <Button

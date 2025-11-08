@@ -51,63 +51,49 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       className={`paper-panel overflow-hidden transition-all duration-300 ease-out cursor-pointer group hover:shadow-emerald-200/80 ${isExpired ? "opacity-80" : ""
-        }`}
+        } pt-0`}
     >
       <div
-        className={`relative h-48 flex items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/70 transition-all duration-300 ease-out ${isExpired
+        className={`relative h-48 overflow-hidden rounded-[1.5rem] border border-white/70 transition-all duration-300 ease-out ${isExpired
           ? "from-gray-100 to-gray-200 bg-gradient-to-br"
           : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]} ${STAGE_HOVER_BACKGROUNDS[project.stage]}`
           }`}
       >
         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.9),transparent_55%)]" />
-        <div className="relative flex h-full flex-col items-center justify-center gap-3 text-6xl">
-          <span className="drop-shadow-sm">{isExpired ? (
-            <div className="text-7xl">
-              <img
-                src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
-                className="object-cover"
-                alt="DEAD"
-              />
-            </div>
+        <div className="relative w-full h-full">
+          {isExpired ? (
+            <img
+              src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
+              className="w-full h-full object-cover"
+              alt="DEAD"
+            />
           ) : project.stage == GrowthStage.ADULT ? (
             <img
               src={"https://media.tenor.com/5UwGb1HKOdwAAAAM/tree.gif"}
-              // width={100}
-              // height={100}
-              className="object-cover"
+              className="w-full h-full object-cover"
               alt="ADULT"
             />
           ) : project.stage == GrowthStage.GROWING ? (
             <img
               src={"https://media.tenor.com/rAQr72pb9r8AAAAM/guardians-of-the-galaxy-groot.gif"}
-              // width={100}
-              // height={100}
-              className="object-cover"
-              alt="ADULT"
+              className="w-full h-full object-cover"
+              alt="GROWING"
             />
           ) : project.stage == GrowthStage.SPROUT ? (
             <img
               src={"https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybGZhc3AxZjhzc3I3NW1jMjFienptOXA2NGJwaXpxMTN3MTN6bzloZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JI9XYDpaAIxvNIH0g9/source.gif"}
-              // width={100}
-              // height={100}
-              className="object-cover"
-              alt="ADULT"
+              className="w-full h-full object-cover"
+              alt="SPROUT"
             />
           ) : project.stage == GrowthStage.SEED ? (
             <img
               src={"https://wilfthebearfacedblogger.wordpress.com/wp-content/uploads/2019/10/seed.gif"}
-              // width={100}
-              // height={100}
-              className="object-cover"
-              alt="ADULT"
+              className="w-full h-full object-cover"
+              alt="SEED"
             />
-          ) :
-            (
-              <div className="text-8xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
-            )}</span>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-slate-600">
-            {isExpired ? "Gagal" : stageKey}
-          </p>
+          ) : (
+            <div className="text-8xl animate-float flex items-center justify-center h-full drop-shadow-sm">{STAGE_EMOJIS[project.stage]}</div>
+          )}
         </div>
 
         {!isExpired && stageOutOfSync && (

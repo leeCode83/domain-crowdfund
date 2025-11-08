@@ -33,11 +33,11 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
       <DialogContent className="max-w-md border-none bg-transparent p-0">
         <div className="paper-panel paper-panel--soft p-6 sm:p-8 space-y-6">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-2xl">
+            <DialogTitle className="flex items-center gap-2 text-2xl text-slate-800">
               <Lightbulb className="w-5 h-5 text-accent" />
               Buat Pohon Baru
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-slate-600">
               Isi detail pohon Anda untuk memulai penggalangan dana.
             </DialogDescription>
           </DialogHeader>
@@ -49,18 +49,18 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
                 <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={handleDecrement} disabled={quantity <= 1}>
                   <Minus className="h-4 w-4" />
                 </Button>
-                <span className="font-bold text-2xl w-12 text-center">{quantity}</span>
+                <span className="font-bold text-2xl w-12 text-center text-slate-700">{quantity}</span>
                 <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={handleIncrement}>
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-slate-500">
                 Total Biaya: {(parseFloat(PLANT_PRICE) * quantity).toFixed(4)} ETH
               </p>
             </div>
           </div>
 
-          <Card className="paper-panel paper-panel--mint p-4 text-xs text-muted-foreground">
+          <Card className="paper-panel--mint p-4 text-xs text-black">
             <p>
               💰 <strong>Biaya per pohon</strong>: {PLANT_PRICE} ETH.
               <br />
@@ -74,7 +74,7 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
             <Button
               variant="outline"
               onClick={onClose}
-              className="flex-1 rounded-full"
+              className="flex-1 rounded-full text-white"
               disabled={loading}
             >
               Batal
@@ -82,7 +82,7 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
             <Button
               onClick={() => handleCreate(quantity)}
               disabled={loading}
-              className="flex-1 gap-2 rounded-full bg-gradient-to-r from-teal-400 via-emerald-400 to-lime-400 text-emerald-950"
+              className="flex-1 gap-2 rounded-full bg-gradient-to-r from-teal-400 via-emerald-400 to-lime-400 text-white"
             >
               {loading ? (
                 <>

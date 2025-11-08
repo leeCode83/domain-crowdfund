@@ -62,7 +62,7 @@ export default function ProjectGrid({ onSelectProject, onCreateProject }: Projec
             Kurasi hutan kota Anda dengan mendukung berbagai kampanye ceria.
           </p>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap justify-end gap-3">
           <Button
             onClick={handleRefresh}
             disabled={loading}
