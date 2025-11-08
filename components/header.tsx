@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Rocket, Home, TreePalm } from "lucide-react"
 import { LoginButton, useActiveAccount, liskSepolia } from "panna-sdk"
 import { Button } from "@/components/ui/button"
+import { MusicBar } from "@/components/music-bar"
 
 export default function Header() {
   const activeAccount = useActiveAccount()
@@ -61,6 +62,11 @@ export default function Header() {
           </nav>
         </div>
       </div>
+      {isConnected && (
+        <div className="container mx-auto px-4 sm:px-6 pb-4">
+          <MusicBar />
+        </div>
+      )}
     </header>
   )
 }
