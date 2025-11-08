@@ -10,6 +10,7 @@ import {
   STAGE_NAMES 
 } from "@/types/contracts"
 import { 
+  formatPlantAge,
   getClientWaterLevel as getFundingPercentage, 
   isCritical as isFundingLow, 
   isStageOutOfSync 
@@ -21,28 +22,28 @@ const STAGE_EMOJIS = {
   [ProjectStage.SEED]: "💡",     // Gunakan ProjectStage.SEED (alias untuk GrowthStage.SEED)
   [ProjectStage.SPROUT]: "🚀",   // Gunakan ProjectStage.SPROUT
   [ProjectStage.GROWING]: "⌛", // Gunakan ProjectStage.GROWING
-  [ProjectStage.BLOOMING]: "✅",  // Gunakan ProjectStage.BLOOMING
+  [ProjectStage.ADULT]: "✅",  // Gunakan ProjectStage.BLOOMING
 }
 
 const STAGE_BACKGROUNDS = {
   [ProjectStage.SEED]: "from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950",
   [ProjectStage.SPROUT]: "from-green-50 to-lime-50 dark:from-green-950 dark:to-lime-950",
   [ProjectStage.GROWING]: "from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950",
-  [ProjectStage.BLOOMING]: "from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950",
+  [ProjectStage.ADULT]: "from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950",
 }
 
 const STAGE_HOVER_BACKGROUNDS = {
   [ProjectStage.SEED]: "group-hover:from-blue-100 group-hover:to-indigo-100 dark:group-hover:from-blue-900 dark:group-hover:to-indigo-900",
   [ProjectStage.SPROUT]: "group-hover:from-green-100 group-hover:to-lime-100 dark:group-hover:from-green-900 dark:group-hover:to-lime-900",
   [ProjectStage.GROWING]: "group-hover:from-gray-100 group-hover:to-gray-200 dark:group-hover:from-gray-800 dark:group-hover:to-gray-900",
-  [ProjectStage.BLOOMING]: "group-hover:from-emerald-100 group-hover:to-teal-100 dark:group-hover:from-emerald-900 dark:group-hover:to-teal-900",
+  [ProjectStage.ADULT]: "group-hover:from-emerald-100 group-hover:to-teal-100 dark:group-hover:from-emerald-900 dark:group-hover:to-teal-900",
 }
 
 const STAGE_BORDERS = {
   [ProjectStage.SEED]: "border-blue-300 dark:border-blue-700",
   [ProjectStage.SPROUT]: "border-green-300 dark:border-green-700",
   [ProjectStage.GROWING]: "border-gray-300 dark:border-gray-700",
-  [ProjectStage.BLOOMING]: "border-emerald-300 dark:border-emerald-700",
+  [ProjectStage.ADULT]: "border-emerald-300 dark:border-emerald-700",
 }
 
 // Hapus 'MOCK_STAGE_NAMES'
@@ -155,13 +156,13 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         {/* Info Meta */}
         <div className="text-xs text-muted-foreground space-y-1 pt-2 border-t border-border">
-          <p className="flex items-center gap-1">
+          {/* <p className="flex items-center gap-1">
             <Coins className="w-3 h-3" />
             Target: 0.003 ETH
-          </p>
+          </p> */}
           <p className="flex items-center gap-1">
             <Clock className="w-3 h-3" />
-            Dimulai: {/* formatPlantAge(project.plantedDate) */} (logika tetap)
+            Dimulai: {formatPlantAge(project.plantedDate) }
           </p>
         </div>
       </div>

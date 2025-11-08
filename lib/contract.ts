@@ -303,10 +303,8 @@ export function getClientWaterLevel(plant: Plant): number {
     return 0
   }
 
-  // ADULT plants don't lose water - they're ready to harvest!
-  // This prevents plants from dying after reaching full maturity
   if (plant.stage === GrowthStage.ADULT) {
-    return plant.waterLevel // Keep water level stable at ADULT stage
+    return 100 // Keep water level stable at ADULT stage
   }
 
   const now = Date.now() / 1000

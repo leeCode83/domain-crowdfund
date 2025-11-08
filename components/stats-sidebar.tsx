@@ -16,8 +16,8 @@ export default function StatsSidebar({ selectedProjectId }: StatsSidebarProps) {
   const { isConnected, address } = useContract()
 
   // Sesuaikan logika ini dengan stage proyek Anda
-  const successfulProjects = projects.filter((p) => p.stage === ProjectStage.BLOOMING && !p.isDead).length // BLOOMING -> SUCCESSFUL
-  const activeProjects = projects.filter((p) => p.stage !== ProjectStage.BLOOMING && !p.isDead).length
+  const successfulProjects = projects.filter((p) => p.stage === ProjectStage.ADULT).length // BLOOMING -> SUCCESSFUL
+  const activeProjects = projects.filter((p) => !p.isDead).length
   const failedProjects = projects.filter((p) => p.isDead).length // isDead -> FAILED/EXPIRED
 
   return (
