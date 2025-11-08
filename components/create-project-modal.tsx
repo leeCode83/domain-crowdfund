@@ -47,10 +47,6 @@ export default function CreateProjectModal({ isOpen, onClose }: CreateProjectMod
               <Input id="title" placeholder="Contoh: Dompet Web3 Revolusioner" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="description">Deskripsi Singkat</Label>
-              <Textarea id="description" placeholder="Jelaskan proyek Anda secara singkat..." />
-            </div>
-            <div className="space-y-2">
               <Label>Kuantitas</Label>
               <div className="flex items-center gap-3">
                 <Button variant="outline" size="icon" className="h-8 w-8" onClick={handleDecrement} disabled={quantity <= 1}>
