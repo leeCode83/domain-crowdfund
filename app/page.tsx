@@ -374,7 +374,7 @@ export default function HomePage() {
 
         <section
           id="features"
-          className="w-full py-16 md:py-24 bg-gradient-to-b from-white via-orange-50/60 to-emerald-50/60"
+          className="w-full py-16 md:py-24 bg-linear-to-b from-white via-orange-50/60 to-emerald-50/60"
         >
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
@@ -382,7 +382,7 @@ export default function HomePage() {
                 <Sparkles className="h-4 w-4" />
                 Fitur Unggulan
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-teal-700">
                 Mengapa Domain Seru untuk Digunakan?
               </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -475,11 +475,11 @@ export default function HomePage() {
 
         <section
           id="global-stats"
-          className="w-full py-16 md:py-24 bg-gradient-to-b from-white via-emerald-50/60 to-white"
+          className="w-full py-16 md:py-24 bg-linear-to-b from-white via-emerald-50/60 to-white"
         >
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-teal-700">
                 Pencapaian Komunitas Ceria
               </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -545,11 +545,11 @@ export default function HomePage() {
 
         <section
           id="tech-slider"
-          className="w-full py-16 md:py-24 bg-gradient-to-b from-white via-slate-50 to-white"
+          className="w-full py-16 md:py-24 bg-linear-to-b from-white via-slate-50 to-white"
         >
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-muted-foreground">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-muted-foreground text-teal-700">
                 Didukung Teknologi Terkini
               </h2>
               <p className="text-muted-foreground max-w-2xl">
@@ -615,14 +615,14 @@ export default function HomePage() {
 
         <section
           id="about"
-          className="w-full py-16 md:py-24 bg-gradient-to-b from-emerald-50/60 via-white to-emerald-50/30"
+          className="w-full py-16 md:py-24 bg-linear-to-b from-emerald-50/60 via-white to-emerald-50/30"
         >
           <div className="container grid items-center gap-10 px-4 md:px-6 lg:grid-cols-2 lg:gap-16 mx-auto">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700 shadow">
                 Tentang Domain
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-teal-700">
                 Crowdfunding hijau dengan sentuhan ceria
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">

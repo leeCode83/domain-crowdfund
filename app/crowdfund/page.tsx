@@ -41,7 +41,7 @@ export default function CrowdfundPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <section className="px-4 sm:px-23 pt-10">
+      <section className="container px-4 md:px-6 mx-auto pt-10">
         <div className="paper-panel paper-panel--mint leaf-hero px-6 sm:px-10 py-10">
           <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-center">
             <div className="space-y-6">
@@ -76,7 +76,7 @@ export default function CrowdfundPage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-23 pt-10 py-12 pb-16">
+      <section className="container px-4 md:px-6 mx-auto pt-10 py-12 pb-16">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
           <main>
             <ProjectGrid
