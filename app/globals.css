@@ -57,7 +57,8 @@
     --popover: oklch(0.12 0.02 250);
     --popover-foreground: oklch(0.95 0.01 250);
 
-    --teal-700: oklch(0.55 0.15 260);
+    /* Samakan hue dengan tema terang supaya brand hijau konsisten */
+    --teal-700: oklch(0.55 0.16 150);
     --teal-700-foreground: oklch(0.98 0 0);
 
     --secondary: oklch(0.2 0.02 250);
@@ -81,7 +82,7 @@
 
     --border: oklch(0.25 0.02 250);
     --input: oklch(0.2 0.02 250);
-    --ring: oklch(0.55 0.15 260);
+    --ring: oklch(0.55 0.16 150);
   }
 }
 
