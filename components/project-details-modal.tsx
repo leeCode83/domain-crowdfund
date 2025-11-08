@@ -6,21 +6,22 @@ import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { Coins, Sparkles, Target, Users, XCircle, RefreshCw, CheckCircle, Clock } from "lucide-react"
 // Ganti nama impor
-import { 
-  Plant as Project, 
-  GrowthStage as ProjectStage, 
-  STAGE_NAMES 
-} from "@/types/contracts" 
+import {
+  GrowthStage,
+  Plant as Project,
+  GrowthStage as ProjectStage,
+  STAGE_NAMES
+} from "@/types/contracts"
 // Ganti nama impor fungsi
-import { 
-  formatPlantAge as formatProjectAge, 
-  formatLastWatered as formatLastFunded, 
-  canHarvest as canClaimFunds, 
-  getPlantProgress as getFundingProgress, 
-  getClientWaterLevel as getFundingPercentage, 
-  isCritical as isFundingLow, 
-  isStageOutOfSync, 
-  getExpectedStage 
+import {
+  formatPlantAge as formatProjectAge,
+  formatLastWatered as formatLastFunded,
+  canHarvest as canClaimFunds,
+  getPlantProgress as getFundingProgress,
+  getClientWaterLevel as getFundingPercentage,
+  isCritical as isFundingLow,
+  isStageOutOfSync,
+  getExpectedStage
 } from "@/lib/contract"
 import { usePlants } from "@/hooks/usePlants"
 import { HARVEST_REWARD } from "@/types/contracts" // Ini jadi target
@@ -69,7 +70,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
   }
 
   const handleFund = async () => {
-    await fundProject(project.id) 
+    await fundProject(project.id)
   }
 
   const handleUpdateStage = async () => {
@@ -81,7 +82,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
       <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <span className="text-3xl">{isExpired ? <XCircle/> : STAGE_EMOJIS[project.stage]}</span>
+            <span className="text-3xl">{isExpired ? <XCircle /> : STAGE_EMOJIS[project.stage]}</span>
             Pohon #{project.id.toString()}
             {isExpired && <span className="text-sm text-gray-500">(Gagal)</span>}
           </DialogTitle>
@@ -89,16 +90,54 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
 
         <div className="space-y-6">
           {/* Visualisasi */}
-          <div className={`h-40 rounded-lg flex items-center justify-center relative overflow-hidden ${
-            isExpired
-              ? 'bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900'
-              : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]}`
-          }`}>
+          <div className={`h-40 rounded-lg flex items-center justify-center relative overflow-hidden ${isExpired
+            ? 'bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900'
+            : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]}`
+            }`}>
             {isExpired ? (
-              <div className="text-8xl grayscale opacity-50"><XCircle /></div>
-            ) : (
-              <div className="text-8xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
-            )}
+              <div className="text-7xl">
+                <img
+                  src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
+                  className="object-cover"
+                  alt="DEAD"
+                />
+              </div>
+            ) : project.stage == GrowthStage.ADULT ? (
+              <img
+                src={"https://media.tenor.com/5UwGb1HKOdwAAAAM/tree.gif"}
+                // width={100}
+                // height={100}
+                className="object-cover"
+                alt="ADULT"
+              />
+            ) : project.stage == GrowthStage.GROWING ? (
+              <img
+                src={"https://media.tenor.com/rAQr72pb9r8AAAAM/guardians-of-the-galaxy-groot.gif"}
+                // width={100}
+                // height={100}
+                className="object-cover"
+                alt="ADULT"
+              />
+            ) : project.stage == GrowthStage.SPROUT ? (
+              <img
+                src={"https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybGZhc3AxZjhzc3I3NW1jMjFienptOXA2NGJwaXpxMTN3MTN6bzloZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JI9XYDpaAIxvNIH0g9/source.gif"}
+                // width={100}
+                // height={100}
+                className="object-cover"
+                alt="ADULT"
+              />
+            ) : project.stage == GrowthStage.SEED ? (
+              <img
+                src={"https://wilfthebearfacedblogger.wordpress.com/wp-content/uploads/2019/10/seed.gif"}
+                // width={100}
+                // height={100}
+                className="object-cover"
+                alt="ADULT"
+              />
+            ) :
+              (
+                <div className="text-8xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
+              )}
           </div>
 
           {/* Info Pohon */}
@@ -146,7 +185,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
               {/* Ini menggunakan waterLevel sbg sisa waktu */}
               <span className="text-sm font-semibold text-foreground">{currentFunding}%</span>
             </div>
-            <Progress value={currentFunding} className="h-3" /> 
+            <Progress value={currentFunding} className="h-3" />
             {!isExpired && currentFunding < 50 && currentFunding > 20 && (
               <p className="text-xs text-orange-600 dark:text-orange-400">⚠️ Waktu hampir habis!</p>
             )}

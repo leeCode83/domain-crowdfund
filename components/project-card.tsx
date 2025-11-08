@@ -4,17 +4,19 @@ import { Card } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Coins, CheckCircle, Clock, XCircle, RefreshCw, Target, Users } from "lucide-react"
 // Impor tipe yang benar
-import { 
-  Plant as Project, 
-  GrowthStage as ProjectStage, 
-  STAGE_NAMES 
+import {
+  GrowthStage,
+  Plant as Project,
+  GrowthStage as ProjectStage,
+  STAGE_NAMES
 } from "@/types/contracts"
-import { 
+import {
   formatPlantAge,
-  getClientWaterLevel as getFundingPercentage, 
-  isCritical as isFundingLow, 
-  isStageOutOfSync 
+  getClientWaterLevel as getFundingPercentage,
+  isCritical as isFundingLow,
+  isStageOutOfSync
 } from "@/lib/contract"
+import Image from "next/image"
 
 // Hapus 'enum MockStage' yang error
 
@@ -22,7 +24,7 @@ const STAGE_EMOJIS = {
   [ProjectStage.SEED]: "💡",     // Gunakan ProjectStage.SEED (alias untuk GrowthStage.SEED)
   [ProjectStage.SPROUT]: "🚀",   // Gunakan ProjectStage.SPROUT
   [ProjectStage.GROWING]: "⌛", // Gunakan ProjectStage.GROWING
-  [ProjectStage.ADULT]: "✅",  // Gunakan ProjectStage.BLOOMING
+  [ProjectStage.ADULT]: "https://share.google/5FEBtCE9rV5JasJXZ",  // Gunakan ProjectStage.BLOOMING
 }
 
 const STAGE_BACKGROUNDS = {
@@ -51,7 +53,7 @@ const STAGE_BORDERS = {
 export default function ProjectCard({ project }: { project: Project }) {
   // Gunakan STAGE_NAMES yang diimpor
   const stageKey = STAGE_NAMES[project.stage]
-  
+
   const fundingPercentage = getFundingPercentage(project)
   const isExpired = project.isDead
   const fundingLow = fundingPercentage < 20 && !isExpired
@@ -60,26 +62,77 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <Card
-      className={`overflow-hidden transition-all duration-300 ease-out animate-grow border-2 cursor-pointer group hover:shadow-lg hover:-translate-y-1 ${
-        isExpired
-          ? 'border-gray-500 opacity-75 hover:border-gray-600'
-          // Gunakan project.stage secara langsung
-          : `${STAGE_BORDERS[project.stage]} hover:border-opacity-100` 
-      }`}
+      className={`overflow-hidden transition-all duration-300 ease-out animate-grow border-2 cursor-pointer group hover:shadow-lg hover:-translate-y-1 ${isExpired
+        ? 'border-gray-500 opacity-75 hover:border-gray-600'
+        // Gunakan project.stage secara langsung
+        : `${STAGE_BORDERS[project.stage]} hover:border-opacity-100`
+        }`}
     >
       {/* Visualisasi Pohon */}
-      <div className={`h-48 flex items-center justify-center relative overflow-hidden transition-all duration-300 ease-out ${
-        isExpired
-          ? 'bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900'
-           // Gunakan project.stage secara langsung
-          : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]} ${STAGE_HOVER_BACKGROUNDS[project.stage]}`
-      }`}>
+      <div className={`h-48 flex items-center justify-center relative overflow-hidden transition-all duration-300 ease-out ${isExpired
+        ? 'bg-linear-to-b from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900'
+        // Gunakan project.stage secara langsung
+        : `bg-linear-to-b ${STAGE_BACKGROUNDS[project.stage]} ${STAGE_HOVER_BACKGROUNDS[project.stage]}`
+        }`}>
         {isExpired ? (
-          <div className="text-7xl grayscale opacity-50"><XCircle /></div>
+          <div className="text-7xl">
+            <img
+              src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
+              className="object-cover"
+              alt="DEAD"
+            />
+          </div>
         ) : (
           <>
             {/* Gunakan project.stage secara langsung */}
-            <div className="text-7xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
+
+            {
+              project.isDead == true
+                ? (
+                  <img
+                    src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
+                    className="object-cover"
+                    alt="DEAD"
+                  />
+                ) : project.stage == GrowthStage.ADULT ? (
+                  <img
+                    src={"https://media.tenor.com/5UwGb1HKOdwAAAAM/tree.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : project.stage == GrowthStage.GROWING ? (
+                  <img
+                    src={"https://media.tenor.com/rAQr72pb9r8AAAAM/guardians-of-the-galaxy-groot.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : project.stage == GrowthStage.SPROUT ? (
+                  <img
+                    src={"https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybGZhc3AxZjhzc3I3NW1jMjFienptOXA2NGJwaXpxMTN3MTN6bzloZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JI9XYDpaAIxvNIH0g9/source.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : project.stage == GrowthStage.SEED ? (
+                  <img
+                    src={"https://wilfthebearfacedblogger.wordpress.com/wp-content/uploads/2019/10/seed.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : (
+                  <>
+                    <div className="text-7xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
+                  </>
+                )
+            }
+
             {/* Perbaiki perbandingan di sini */}
             {project.stage === ProjectStage.SEED && (
               <>
@@ -162,7 +215,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </p> */}
           <p className="flex items-center gap-1">
             <Clock className="w-3 h-3" />
-            Dimulai: {formatPlantAge(project.plantedDate) }
+            Dimulai: {formatPlantAge(project.plantedDate)}
           </p>
         </div>
       </div>
