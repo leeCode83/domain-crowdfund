@@ -80,7 +80,50 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
             >
               <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.9),transparent_55%)]" />
               <div className="relative flex flex-col items-center gap-2 text-7xl">
-                <span>{isExpired ? "🥀" : STAGE_EMOJIS[project.stage]}</span>
+                <span>{isExpired ? (
+                  <div className="text-7xl">
+                    <img
+                      src={"https://media.tenor.com/CACmyfrqvhgAAAAM/hennie-vpro.gif"}
+                      className="object-cover"
+                      alt="DEAD"
+                    />
+                  </div>
+                ) : project.stage == GrowthStage.ADULT ? (
+                  <img
+                    src={"https://media.tenor.com/5UwGb1HKOdwAAAAM/tree.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : project.stage == GrowthStage.GROWING ? (
+                  <img
+                    src={"https://media.tenor.com/rAQr72pb9r8AAAAM/guardians-of-the-galaxy-groot.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : project.stage == GrowthStage.SPROUT ? (
+                  <img
+                    src={"https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUybGZhc3AxZjhzc3I3NW1jMjFienptOXA2NGJwaXpxMTN3MTN6bzloZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JI9XYDpaAIxvNIH0g9/source.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) : project.stage == GrowthStage.SEED ? (
+                  <img
+                    src={"https://wilfthebearfacedblogger.wordpress.com/wp-content/uploads/2019/10/seed.gif"}
+                    // width={100}
+                    // height={100}
+                    className="object-cover"
+                    alt="ADULT"
+                  />
+                ) :
+                  (
+                    <div className="text-8xl animate-float">{STAGE_EMOJIS[project.stage]}</div>
+                  )}</span>
                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-600">
                   {isExpired ? "Gagal" : stageKey}
                 </p>
@@ -91,7 +134,7 @@ export default function ProjectDetailsModal({ project, isOpen, onClose }: Projec
                   Sinkronkan
                 </span>
               )}
-              {!isExpired && fundingLow && (
+              {!isExpired && (
                 <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-rose-500 shadow">
                   <Users className="w-3 h-3" />
                   Butuh Dukungan
